@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;500;600;700;800&display=swap");
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  --background-color-light: #f8f8f8;
+  --text-color-light: #333;
+  --button-color-light: #007bff;
+  --button-text-color-light: #fff;
+
+  --background-color-dark: #333;
+  --text-color-dark: #f8f8f8;
+  --button-color-dark: #6c757d;
+  --button-text-color-dark: #fff;
+
+  --button-border-dark: #656576;
+  --button-border-light: darkblue;
+
+  --background-color-theme: #333;
+}
+
+/* Dark theme */
+.app.dark,
+#root.dark {
+  --background-color: var(--background-color-dark);
+  --text-color: var(--text-color-dark);
+  --button-color: var(--button-color-dark);
+  --button-text-color: var(--button-text-color-dark);
+  --background-color-theme: var(--background-color-dark);
+  --button-border-color: var(--button-border-dark);
+}
+
+/* Light theme */
+.app.light,
+#root.light {
+  --background-color: var(--background-color-light);
+  --text-color: var(--text-color-light);
+  --button-color: var(--button-color-light);
+  --button-text-color: var(--button-text-color-light);
+  --background-color-theme: var(--background-color-light);
+  --button-border-color: var(--button-border-light);
+}
+
+button {
+  background-color: var(--button-color);
+  color: var(--button-text-color);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Inter", sans-serif !important;
+}
+body {
+  font-size: 16px;
+}
+input {
+  border: none;
+  outline: none;
+}
+
+button {
+  border: none;
+  outline: none;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+
+#root {
+  height: 100dvh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  background-color: var(--background-color-theme);
+}
+
+.app {
+  width: 100%;
+  height: 100%;
+  padding: 3rem 2rem;
+  max-width: 720px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap-reverse;
+}
+
+.topbar button {
+  flex-basis: 48%;
+  padding: 0.7rem 0.4rem;
+  border: 1px solid grey;
+  font-weight: 800;
+}
+
+.topbar button:hover {
+  border-color: red;
+}
+
+.todo-list {
+  margin-top: 2rem;
+  max-height: 800px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 100%;
+}
+
+.todo-list__header {
+  font-weight: 800;
+  letter-spacing: 0.1px;
+  font-size: 1.8rem;
+}
+
+.todo-list__items {
+  display: inherit;
+  flex-direction: inherit;
+  gap: 0.5rem;
+}
+
+.todo-list__empty-message {
+  text-align: center;
+  font-weight: 500;
+  font-size: 1rem;
+  margin: 2rem 0;
+}
+
+.todo {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.todo.complete {
+  opacity: 0.2;
+}
+
+.todo__input {
+  background-color: transparent;
+  color: var(--text-color);
+  font-weight: 700;
+}
+
+.app.light .todo__input {
+  border-bottom: 1px solid var(--background-color-dark);
+}
+
+.app.dark .todo__input {
+  border-bottom: 1px solid var(--background-color-light);
+}
+.todo__btn {
+  background-color: rgb(186, 9, 9);
+  padding: 0.4rem 0.9rem;
+  color: white;
+}
+.todo__input--completion-status {
+  flex-basis: 5%;
+  cursor: pointer;
+}
+.todo__input--title {
+  flex-basis: 80%;
+  margin-top: -0.1rem;
+}
+
+.todo__btn--delete {
+  flex-basis: 10%;
+  font-weight: 800;
+  font-size: 0.6rem;
+}
+
+.new-todo {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.new-todo__input {
+  flex-basis: 90%;
+  padding: 0.4rem 0.9rem;
+  border: 2px solid rgba(120, 120, 122, 0.1);
+  border-radius: 0.3rem;
+  transition: all 0.2s ease-in;
+}
+
+.new-todo__input:focus {
+  border: 2px solid rgba(120, 120, 122, 0.3);
+}
+.new-todo__submit {
+  flex-basis: 10%;
+  border: 2px solid var(--button-border-color);
+  background-color: black;
+  color: white;
+  padding: 0.4rem 0.9rem;
+  font-weight: 700;
+  transition: all 0.2s ease-in;
+}
+
+.new-todo__submit:hover {
+  border: 2px solid red;
+}
+.new-todo__submit:disabled {
+  opacity: 0.2;
+}
