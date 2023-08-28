@@ -1,17 +1,19 @@
-import { useAtom } from "jotai";
+import { useAtom } from 'jotai';
+import { memo } from 'react';
 
-import { themeAtom } from "../jotai/theme/store";
+import { themeAtom } from '../jotai/theme/store';
 
 const ThemeSwitch = () => {
-  const [theme, setTheme] = useAtom(themeAtom);
-  const toggleTheme = () =>
-    setTheme((theme) => (theme === "dark" ? "light" : "dark"));
+	const [theme, setTheme] = useAtom(themeAtom);
 
-  return (
-    <button className="topbar__theme-switch" onClick={toggleTheme}>
-      Switch Theme : {theme?.toUpperCase()}
-    </button>
-  );
+	const toggleTheme = () =>
+		setTheme((theme) => (theme === 'dark' ? 'light' : 'dark'));
+
+	return (
+		<button onClick={toggleTheme}>
+			Switch Theme : <span className='topbar__theme-switch'>{theme}</span>
+		</button>
+	);
 };
 
-export default ThemeSwitch;
+export default memo(ThemeSwitch);

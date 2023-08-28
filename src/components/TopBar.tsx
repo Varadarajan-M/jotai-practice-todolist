@@ -1,13 +1,15 @@
-import ThemeSwitch from "./ThemeSwitch";
-import TodoLoad from "./TodoLoad";
+import { memo } from 'react';
+
+import ThemeSwitch from './ThemeSwitch';
+import TodoLoad from './TodoLoad';
 
 const TopBar = () => {
-  return (
-    <div className="topbar">
-      <ThemeSwitch />
-      <TodoLoad />
-    </div>
-  );
+	return (
+		<div className='topbar'>
+			<ThemeSwitch />
+			<TodoLoad />
+		</div>
+	);
 };
 
-export default TopBar;
+export default memo(TopBar);

@@ -1,25 +1,25 @@
-import { useAtom } from "jotai";
+import { useAtom } from 'jotai';
+import { useEffect } from 'react';
 
-import TopBar from "./TopBar";
-import TodoList from "./TodoList";
+import TopBar from './TopBar';
+import TodoList from './TodoList';
 
-import { themeAtom } from "../jotai/theme/store";
-import { useEffect } from "react";
+import { themeAtom } from '../jotai/theme/store';
 
-import "../styles.css";
+import '../styles.css';
 
 export default function App() {
-  const [theme] = useAtom(themeAtom);
+	const [theme] = useAtom(themeAtom);
 
-  useEffect(() => {
-    const root = document.getElementById("root")!;
-    root.className = theme;
-  }, [theme]);
+	useEffect(() => {
+		const root = document.getElementById('root')!;
+		root.className = theme;
+	}, [theme]);
 
-  return (
-    <div className={`app ${theme}`}>
-      <TopBar />
-      <TodoList />
-    </div>
-  );
+	return (
+		<div className={`app ${theme}`}>
+			<TopBar />
+			<TodoList />
+		</div>
+	);
 }
